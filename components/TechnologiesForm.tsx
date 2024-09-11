@@ -23,7 +23,7 @@ export default function TechnologiesForm({
     inputRefs.current = inputRefs.current.slice(0, technologies.length);
   }, [technologies]);
 
-  const handleKeyDown = (event: React.KeyboardEvent<HTMLInputElement>, index: number) => {
+  const handleKeyDown = (event: React.KeyboardEvent<HTMLInputElement>) => {
     if (event.key === 'Enter') {
       event.preventDefault();
       addItem('technologies');
@@ -47,7 +47,7 @@ export default function TechnologiesForm({
             name={`technologies-${index}`}
             value={tech}
             onChange={(e) => handleInputChange('technologies', e.target.value, index)}
-            onKeyDown={(e) => handleKeyDown(e, index)}
+            onKeyDown={handleKeyDown}
             placeholder={`Technology ${index + 1}`}
           />
           <Button

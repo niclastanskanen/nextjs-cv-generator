@@ -51,7 +51,7 @@ export default function CvTemplateGenerator() {
     }
 
     if (Array.isArray(prevData[field]) && typeof index === 'number') {
-      const newArray = [...(prevData[field] as any[])];
+      const newArray = [...(prevData[field] as Array<Record<string, unknown>>)];
       if (subfield && typeof subIndex === 'number') {
         newArray[index] = {
           ...newArray[index],
