@@ -1,13 +1,16 @@
 import { clsx, type ClassValue } from "clsx"
 import { twMerge } from "tailwind-merge"
-import html2pdf from 'html2pdf.js'
 
 export function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs))
 }
 
 export const generatePDF = async (element: HTMLElement, filename: string) => {
-  if (!element) return
+  if (typeof window === 'undefined') {
+    throw new Error('generatePDF can only be used in the browser');
+  }
+
+  const html2pdf = (await import('html2pdf.js')).default;
 
   try {
     // Apply PDF-specific styles
