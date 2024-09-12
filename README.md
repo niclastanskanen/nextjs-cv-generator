@@ -45,20 +45,20 @@ The CvPreview component demonstrates the ability to create a complex, data-drive
 const CvPreview = React.forwardRef<HTMLDivElement, CvPreviewProps>(({ cvData }, ref) => {
 return (
 <div ref={ref} className="space-y-2">
-<div className="flex flex-col items-center">
-<h1 className="text-2xl font-bold mb-4">{cvData.fullName || 'Your Name'}</h1>
-<div className="w-full flex justify-between items-start">
-<div>
-<p className="text-gray-600">{cvData.location || 'City, Country'}</p>
-<p className="text-gray-600">{cvData.email || 'email@example.com'}</p>
-</div>
-<div className="text-right">
-<a href={cvData.linkedin} className="text-blue-500 block">{cvData.linkedin ? 'LinkedIn' : 'linkedin.com/in/your_profile'}</a>
-<a href={cvData.github} className="text-blue-500 block">{cvData.github ? 'GitHub' : 'github.com/your_profile'}</a>
-</div>
-</div>
-</div>
-{/ ... (rest of the component) ... /}
+  <div className="flex flex-col items-center">
+    <h1 className="text-2xl font-bold mb-4">{cvData.fullName || 'Your Name'}</h1>
+      <div className="w-full flex justify-between items-start">
+        <div>
+          <p className="text-gray-600">{cvData.location || 'City, Country'}</p>
+          <p className="text-gray-600">{cvData.email || 'email@example.com'}</p>
+        </div>
+        <div className="text-right">
+          <a href={cvData.linkedin} className="text-blue-500 block">{cvData.linkedin ? 'LinkedIn' : 'linkedin.com/in/your_profile'}</a>
+          <a href={cvData.github} className="text-blue-500 block">{cvData.github ? 'GitHub' : 'github.com/your_profile'}</a>
+        </div>
+      </div>
+    </div>
+  {/ ... (rest of the component) ... /}
 </div>
 )
 ```
